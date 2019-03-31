@@ -69,7 +69,7 @@ public class MainTest {
         Method m = null;
         Class c = Main.class;
         try {
-            // procurar o methodName, com 1 argumento int n
+            // procurar o methodName, sem argumentos
             m = c.getDeclaredMethod("retornarZero", (Class<?>[]) null);
         }
         catch(NoSuchMethodException e) {
@@ -125,7 +125,8 @@ public class MainTest {
         
         try {
             
-            m.setAccessible(true); // hack
+            m.setAccessible(true); // hack (non-public method)
+            
             Object o = m.invoke(Main.class.newInstance(), 1); // dobro de 1
             
             int res = Integer.parseInt(o.toString());
@@ -168,7 +169,8 @@ public class MainTest {
      
         try {
             
-            m.setAccessible(true); // hack
+            m.setAccessible(true); // hack (non-public method)
+            
             Object o = m.invoke(Main.class.newInstance(), 1, 3); // somarDoisNumeros(1, 3)
 
             int res = Integer.parseInt(o.toString());
