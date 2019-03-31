@@ -21,8 +21,18 @@ public class Main {
         
         Method[] methods = Main.class.getMethods();
         
+        System.out.println("Methods");
         for(Method m : methods) {
-            System.out.println(m.getName());
+            System.out.println("  " + m.getName());
+        }
+        
+        Method[] methods2 = Main.class.getDeclaredMethods();
+        
+        System.out.println("Declared methods");
+        for(Method m : methods) {
+            System.out.println("  " + m.getName());
+        }
+        
         }
     }
     
