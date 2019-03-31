@@ -65,12 +65,41 @@ public class MainTest {
     
     @Test
     public void test_RetornarZero() {
-        // TODO review the generated test code and remove the default call to fail.
-        boolean methodOk = findMethodInClass("retornarZero", Main.class);
+        boolean found = true;
+        Method m = null;
+        Class c = Main.class;
+        try {
+            // procurar o methodName, com 1 argumento int n
+            m = c.getDeclaredMethod("retornarZero", (Class<?>[]) null);
+        }
+        catch(NoSuchMethodException e) {
+            found = false;
+        }
         
-        if(!methodOk) {
+        if(!found) {
             fail("O metodo retornarZero() nao foi encontrado na sua classe Main.");
         }
+        
+        // De seguida vem o codigo para chamar o metodo
+        // (quando existente)
+        // e verificar o valor retornado
+        
+        try {
+            
+            m.setAccessible(true); // hack
+            
+            Object o = m.invoke(Main.class.newInstance()); // = retornarZero()
+            
+            int res = Integer.parseInt(o.toString());
+
+            assertEquals(0, res);
+            
+            //System.out.println("Res: " + o);
+        }
+        catch(IllegalAccessException | InvocationTargetException | InstantiationException e) {
+            fail("REVER");
+        }
+        
     }
     
     @Test
