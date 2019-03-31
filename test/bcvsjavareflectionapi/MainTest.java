@@ -80,7 +80,7 @@ public class MainTest {
         Method m = null;
         try {
             // procurar o methodName, com 1 argumento int n
-            m = c.getMethod("dobro", int.class);
+            m = c.getDeclaredMethod("dobro", int.class);
         }
         catch(NoSuchMethodException e) {
             found = false;
@@ -95,6 +95,8 @@ public class MainTest {
         // e verificar o valor retornado
         
         try {
+            
+            m.setAccessible(true); // hack
             Object o = m.invoke(Main.class.newInstance(), 1); // dobro de 1
             
             int res = Integer.parseInt(o.toString());
@@ -121,7 +123,7 @@ public class MainTest {
         Method m = null;
         try {
             // procurar o methodName, com 1 argumento int n
-            m = c.getMethod("somarDoisNumeros", int.class, int.class);
+            m = c.getDeclaredMethod("somarDoisNumeros", int.class, int.class);
         }
         catch(NoSuchMethodException e) {
             found = false;
@@ -136,6 +138,8 @@ public class MainTest {
         // e verificar o valor retornado
      
         try {
+            
+            m.setAccessible(true); // hack
             Object o = m.invoke(Main.class.newInstance(), 1, 3); // somarDoisNumeros(1, 3)
 
             int res = Integer.parseInt(o.toString());
