@@ -38,13 +38,13 @@ public class Main {
     
     // pedido: static int retornarZero()
     // o aluno enganou-se e escreveu retornarZer0 em vez de retornarZero
-    public static int retornarZer0() {
+    static int retornarZer0() {
         return 0;
     }
     
     // pedido: static int dobro(int n)
     // neste caso o aluno nao meteu o atributo "int n" na propria funcao
-    public static int dobro(int m) {
+    static int dobro() {
         int n = 0;
         return n * 2;
     }
@@ -52,7 +52,7 @@ public class Main {
     // pedido: static int dobro(int n)
     // neste caso esta tudo OK com o protocolo
     // mas a implementacao tem um erro
-    public static int somarDoisNumeros(int a, int b) {
+    static int somarDoisNumeros(int a, int b) {
         return a + b + 1;
     }
     
