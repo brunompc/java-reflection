@@ -32,8 +32,7 @@ public class Main {
         for(Method m : methods) {
             System.out.println("  " + m.getName());
         }
-        
-        }
+
     }
     
     // pedido: static int retornarZero()
